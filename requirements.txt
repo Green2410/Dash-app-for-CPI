@@ -1,0 +1,6 @@
+pandas
+numpy
+plotly
+streamlit
+datetime
+dashdash_bootstrap_component
