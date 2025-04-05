@@ -633,62 +633,57 @@ def get_vis12(data):
 def main():
     st.title("Inflation Dashboard")
 
-    # Sidebar: CSV file path input
-    csv_path = st.sidebar.text_input(
-        "CSV File Path",
-        value="C:/Users/abhir/Downloads/cpi Group data.csv",
-        help="Enter the path to your CSV file."
-    )
-    if not csv_path:
-        st.warning("Please provide a valid CSV file path in the sidebar.")
-        return
-
-    # Load data (cached)
-    data = load_data(csv_path)
+    uploaded_file = st.sidebar.file_uploader("Upload CSV File", type="csv")
+    
+    if uploaded_file is not None:
+        data = load_data(uploaded_file)
 
     # Create tabs for each visualization; figures are created only when needed
-    tabs = st.tabs([
-        "Vis 1: Inflation by Group (Year)",
-        "Vis 2: Inflation by Years (Group)",
-        "Vis 3: Inflation by States (Month_Year)",
-        "Vis 4: Inflation by State (Month_Year as Color)",
-        "Vis 5: Median Inflation by Month",
-        "Vis 6: Contribution Analysis",
-        "Vis 7A: Distribution (Histogram)",
-        "Vis 7B: Distribution (Boxplot)",
-        "Vis 8: Dynamic Time Window",
-        "Vis 9: Inflation Rate by Sectors (Year vs. Month_Year)",
-        "Vis 10: Aggregated Inflation by Group & Sector",
-        "Vis 11: Moving Std Dev by Sector",
-        "Vis 12: Overall Volatility by Group"
-    ])
+        tabs = st.tabs([
+            "Vis 1: Inflation by Group (Year)",
+            "Vis 2: Inflation by Years (Group)",
+            "Vis 3: Inflation by States (Month_Year)",
+            "Vis 4: Inflation by State (Month_Year as Color)",
+            "Vis 5: Median Inflation by Month",
+            "Vis 6: Contribution Analysis",
+            "Vis 7A: Distribution (Histogram)",
+            "Vis 7B: Distribution (Boxplot)",
+            "Vis 8: Dynamic Time Window",
+            "Vis 9: Inflation Rate by Sectors (Year vs. Month_Year)",
+            "Vis 10: Aggregated Inflation by Group & Sector",
+            "Vis 11: Moving Std Dev by Sector",
+            "Vis 12: Overall Volatility by Group"
+        ])
 
-    with tabs[0]:
-        st.plotly_chart(get_vis1(data), use_container_width=True)
-    with tabs[1]:
-        st.plotly_chart(get_vis2(data), use_container_width=True)
-    with tabs[2]:
-        st.plotly_chart(get_vis3(data), use_container_width=True)
-    with tabs[3]:
-        st.plotly_chart(get_vis4(data), use_container_width=True)
-    with tabs[4]:
-        st.plotly_chart(get_vis5(data), use_container_width=True)
-    with tabs[5]:
-        st.plotly_chart(get_vis6(data), use_container_width=True)
-    with tabs[6]:
-        st.plotly_chart(get_vis7_hist(data), use_container_width=True)
-    with tabs[7]:
-        st.plotly_chart(get_vis7_box(data), use_container_width=True)
-    with tabs[8]:
-        st.plotly_chart(get_vis8(data), use_container_width=True)
-    with tabs[9]:
-        st.plotly_chart(get_vis9(data), use_container_width=True)
-    with tabs[10]:
-        st.plotly_chart(get_vis10(data), use_container_width=True)
-    with tabs[11]:
-        st.plotly_chart(get_vis11(data), use_container_width=True)
-    with tabs[12]:
-        st.plotly_chart(get_vis12(data), use_container_width=True)
+        with tabs[0]:
+            st.plotly_chart(get_vis1(data), use_container_width=True)
+        with tabs[1]:
+            st.plotly_chart(get_vis2(data), use_container_width=True)
+        with tabs[2]:
+            st.plotly_chart(get_vis3(data), use_container_width=True)
+        with tabs[3]:
+            st.plotly_chart(get_vis4(data), use_container_width=True)
+        with tabs[4]:
+            st.plotly_chart(get_vis5(data), use_container_width=True)
+        with tabs[5]:
+            st.plotly_chart(get_vis6(data), use_container_width=True)
+        with tabs[6]:
+            st.plotly_chart(get_vis7_hist(data), use_container_width=True)
+        with tabs[7]:
+            st.plotly_chart(get_vis7_box(data), use_container_width=True)
+        with tabs[8]:
+            st.plotly_chart(get_vis8(data), use_container_width=True)
+        with tabs[9]:
+            st.plotly_chart(get_vis9(data), use_container_width=True)
+        with tabs[10]:
+            st.plotly_chart(get_vis10(data), use_container_width=True)
+        with tabs[11]:
+            st.plotly_chart(get_vis11(data), use_container_width=True)
+        with tabs[12]:
+            st.plotly_chart(get_vis12(data), use_container_width=True)
+    
+    else:
+        st.sidebar.info("Please upload your CSV file.")
 
 if __name__ == "__main__":
     main()
