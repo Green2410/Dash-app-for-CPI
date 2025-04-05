@@ -10,7 +10,7 @@ from plotly.subplots import make_subplots
 # -----------------------
 # Data Processing Section
 # -----------------------
-data = pd.read_csv(r"C:\Users\abhir\Downloads\cpi Group data.csv")
+data = pd.read_csv("cpi Group data.csv")
 
 # Convert columns to numeric if necessary
 columns = ['Index', 'Inflation (%)']
