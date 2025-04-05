@@ -3,5 +3,5 @@ numpy
 plotly
 streamlit
 datetime
-dashdash_bootstrap_component
+dash-bootstrap-components
 gunicorn
