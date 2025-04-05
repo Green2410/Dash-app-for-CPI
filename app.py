@@ -446,5 +446,5 @@ app.layout = dbc.Container([
     dbc.Container(tabs, fluid=True, style={"marginTop": "30px"})
 ], fluid=True, style={"fontFamily": "Arial, sans-serif", "backgroundColor": "#f8f9fa", "padding": "20px"})
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+if __name__ == '__main__':
+    app.run(debug=True)
