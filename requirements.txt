@@ -4,3 +4,4 @@ plotly
 streamlit
 datetime
 dashdash_bootstrap_component
+gunicorn
